@@ -22,7 +22,7 @@ public class AuthController {
     public ResponseEntity<? extends BasicResponse> login(@RequestBody @Valid LoginRequest loginRequest) {
         // TODO: 2021-06-26 로그인 검증 DB조회
 
-        if(!"test".equals(loginRequest.getAccount()) || !"test".equals(loginRequest.getPassword())) {
+        if(!"test".equals(loginRequest.getUserid()) || !"test".equals(loginRequest.getPassword())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(StatusEnum.BAD_REQUEST, "A001", "테스트 회원 정보가 아닙니다."));
         }
         return ResponseEntity.ok().body(new ResultResponse<>(StatusEnum.OK, loginRequest));
