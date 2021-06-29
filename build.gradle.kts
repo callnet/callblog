@@ -20,7 +20,7 @@ subprojects {
     group = "callblog"
     version = "1.0.1"
     java {
-        sourceCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_13
     }
 
     // project environment :  ex) prod : -Penv=prod
