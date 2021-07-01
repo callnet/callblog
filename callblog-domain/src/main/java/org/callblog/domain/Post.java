@@ -5,16 +5,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
-@Getter @Setter
-@NoArgsConstructor
-@ToString
+@Getter @Setter @NoArgsConstructor @ToString
 @EntityListeners({AuditingEntityListener.class}) //@CreatedDate 를 사용하기 위함
 @Entity
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long seq;
 
     private String title;
 

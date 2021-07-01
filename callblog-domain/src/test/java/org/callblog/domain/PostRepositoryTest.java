@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PostRepositoryTest {
 
     @Autowired
-    private PostRepository postRepository;
-    @Autowired
     private TestEntityManager em;
+    @Autowired
+    private PostRepository postRepository;
 
     @Test
-    void 저장() {
+    void insertPost() {
         CommonInfo commonInfo = new CommonInfo();
 
         Post post = Post.builder()
