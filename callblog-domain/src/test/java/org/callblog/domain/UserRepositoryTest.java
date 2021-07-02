@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class UserRepositoryTest {
@@ -20,5 +22,20 @@ public class UserRepositoryTest {
     @Test
     void insertUser() {
 
+        User user = User.builder()
+                .email("test@test.com")
+                .userId("test")
+                .password("test")
+                .name("테스트")
+                .commonInfo(new CommonInfo())
+                .build();
+
+        userRepository.save(user);
+        userRepository.flush();
+        em.detach(user);
+
+        User resUser = userRepository.getOne(user.getSeq());
+
+        assertEquals(user.getEmail(), resUser.getEmail());
     }
 }

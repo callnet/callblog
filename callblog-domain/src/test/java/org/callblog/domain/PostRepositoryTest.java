@@ -22,16 +22,14 @@ public class PostRepositoryTest {
 
     @Test
     void insertPost() {
-        CommonInfo commonInfo = new CommonInfo();
 
         Post post = Post.builder()
                 .title("제목")
                 .contents("내용")
-                .commonInfo(commonInfo)
+                .commonInfo(new CommonInfo())
                 .build();
 
         em.persist(post);
-        em.flush();
 
         post.setContents("내용 수정");
         Post resPost = postRepository.save(post);

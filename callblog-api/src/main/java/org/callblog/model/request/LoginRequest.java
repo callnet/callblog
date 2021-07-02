@@ -1,13 +1,13 @@
-package org.callblog.model.request;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter @Setter @NoArgsConstructor
-public class LoginRequest {
-
-    String userid;
-    String password;
-
-}
+//package org.callblog.model.request;
+//
+//import lombok.Getter;
+//import lombok.NoArgsConstructor;
+//import lombok.Setter;
+//
+//@Getter @Setter @NoArgsConstructor
+//public class LoginRequest {
+//
+//    String userid;
+//    String password;
+//
+//}

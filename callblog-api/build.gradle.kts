@@ -1,4 +1,5 @@
 dependencies {
+    implementation(project(":callblog-domain"))
     //DB
     runtimeOnly("com.h2database:h2")
 
