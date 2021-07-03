@@ -1,5 +1,5 @@
 plugins {
-    id("org.springframework.boot") version("2.4.7")  apply false
+    id("org.springframework.boot") version("2.4.8")  apply false
     id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
     java apply true
 }
@@ -23,16 +23,17 @@ subprojects {
         sourceCompatibility = JavaVersion.VERSION_13
     }
 
+    //스프링2.4 이상 버전의 spring.config.activate.on-profile 설정 사용으로 아래 설정은 사용하지 않는다.
     // project environment :  ex) prod : -Penv=prod
-    val env = project.findProperty("env") ?: "local"
-    sourceSets {
-        main {
-            resources {
-                srcDir("src/main/resources")
-                srcDir("src/main/resources-${env}")
-            }
-        }
-    }
+//    val env = project.findProperty("env") ?: "local"
+//    sourceSets {
+//        main {
+//            resources {
+//                srcDir("src/main/resources")
+//                srcDir("src/main/resources-${env}")
+//            }
+//        }
+//    }
 
     dependencies {
         implementation(platform("org.springframework.boot:spring-boot-dependencies:2.2.1.RELEASE"))
