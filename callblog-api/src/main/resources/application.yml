@@ -1,2 +1,9 @@
 server:
   port: 8081
+
+spring:
+  profiles:
+    include: "db"
+    group:
+      dev: "common,dev"
+      local: "common,local"

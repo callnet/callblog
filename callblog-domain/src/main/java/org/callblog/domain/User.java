@@ -4,6 +4,9 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Getter @Setter @NoArgsConstructor @ToString
 @EntityListeners({AuditingEntityListener.class})    //@CreatedDate 를 사용하기 위함
@@ -14,10 +17,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
+    @Email
     private String email;
 
+    @NotEmpty
     private String userId;
 
+    @NotEmpty
     private String password;
 
     private String name;

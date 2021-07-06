@@ -1,7 +1,9 @@
-POST http://localhost:8080/api/auth/login
+### 회원가입
+POST http://localhost:8081/api/auth/signUp
 Content-Type: application/json
 
 {
-  "account" : "test",
+  "email" : "test@test.com",
+  "userId" : "test",
   "password" : "test"
 }
