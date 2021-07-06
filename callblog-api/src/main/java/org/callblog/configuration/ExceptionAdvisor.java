@@ -32,4 +32,10 @@ public class ExceptionAdvisor {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(StatusEnum.BAD_REQUEST, "V001", builder.toString()));
     }
+
+    @ExceptionHandler(CallblogCommonException.class)
+    public ResponseEntity<? extends BasicResponse> processErrorResponse(CallblogCommonException exception) {
+
+        return ResponseEntity.badRequest().body(exception.getBasicResponse());
+    }
 }
