@@ -17,7 +17,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
-    @Email
+    @Email @NotEmpty
     private String email;
 
     @NotEmpty
