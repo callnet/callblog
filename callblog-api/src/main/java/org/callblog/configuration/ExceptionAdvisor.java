@@ -1,5 +1,7 @@
 package org.callblog.configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.callblog.model.response.BasicResponse;
 import org.callblog.model.response.ErrorResponse;
 import org.callblog.model.response.StatusEnum;
@@ -19,6 +21,9 @@ public class ExceptionAdvisor {
     public ResponseEntity<? extends BasicResponse> processValidationError(MethodArgumentNotValidException exception) {
         BindingResult bindingResult = exception.getBindingResult();
 
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode ValidationErrors = mapper.createObjectNode();
+
         StringBuilder builder = new StringBuilder();
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
             builder.append("[");
@@ -28,9 +33,11 @@ public class ExceptionAdvisor {
             builder.append(" 입력된 값: [");
             builder.append(fieldError.getRejectedValue());
             builder.append("]");
+
+            ValidationErrors.put(fieldError.getField(), fieldError.getDefaultMessage());
         }
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(StatusEnum.BAD_REQUEST, "V001", builder.toString()));
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(new ErrorResponse<>(StatusEnum.UNPROCESSABLE_ENTITY, "V001", builder.toString(), ValidationErrors));
     }
 
     @ExceptionHandler(CallblogCommonException.class)

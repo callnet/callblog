@@ -17,13 +17,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
-    @Email @NotEmpty
+    @NotEmpty(message = "email 은 필수 값입니다.")
+    @Email(message = "email 형식이 아닙니다.")
     private String email;
 
-    @NotEmpty
+    @NotEmpty(message = "userId 는 필수 값입니다.")
     private String userId;
 
-    @NotEmpty
+    @NotEmpty(message = "password 는 필수 값입니다.")
     private String password;
 
     private String name;
