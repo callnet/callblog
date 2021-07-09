@@ -1,6 +1,7 @@
 package org.callblog.domain;
 
 import lombok.*;
+import org.callblog.configuration.ValidationGroups;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -17,14 +18,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long seq;
 
-    @NotEmpty(message = "email 은 필수 값입니다.")
+    @NotEmpty(message = "email 은 필수 값입니다.",
+            groups = { ValidationGroups.loginGroup.class,
+                    ValidationGroups.signUpGroup.class })
     @Email(message = "email 형식이 아닙니다.")
     private String email;
 
-    @NotEmpty(message = "userId 는 필수 값입니다.")
+    @NotEmpty(message = "userId 는 필수 값입니다.",
+            groups = { ValidationGroups.signUpGroup.class })
     private String userId;
 
-    @NotEmpty(message = "password 는 필수 값입니다.")
+    @NotEmpty(message = "password 는 필수 값입니다.",
+            groups = { ValidationGroups.loginGroup.class,
+                    ValidationGroups.signUpGroup.class })
     private String password;
 
     private String name;

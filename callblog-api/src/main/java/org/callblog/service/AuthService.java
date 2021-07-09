@@ -14,17 +14,23 @@ public class AuthService {
     @Autowired UserRepository userRepository;
 
     public void signUp(User user) {
-
         this.checkDuplication(user);
         user.setCommonInfo(new CommonInfo());
         userRepository.save(user);
     }
 
+    public User login(User user) {
+        return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).orElseThrow(() -> {
+            throw new CallblogCommonException(new ErrorResponse<>(StatusEnum.BAD_REQUEST, "D002", "email 또는 password 가 다릅니다."));
+            });
+    }
+
     public void checkDuplication(User user) {
         if (userRepository.findByEmailEquals(user.getEmail()).isPresent()) {
-            throw new CallblogCommonException(new ErrorResponse(StatusEnum.DUPLICATE_EMAIL, "D001", "이미 가입된 email 입니다."));
+            throw new CallblogCommonException(new ErrorResponse<>(StatusEnum.DUPLICATE_EMAIL, "D001", "이미 가입된 email 입니다."));
         }
     }
+
 
 
 }
