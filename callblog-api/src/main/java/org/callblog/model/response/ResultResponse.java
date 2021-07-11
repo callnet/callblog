@@ -29,6 +29,9 @@ public class ResultResponse<T> extends BasicResponse{
         }
     }
 
+    public ResultResponse(StatusEnum status) {
+        this(status, "S001", "성공", null);
+    }
     public ResultResponse(StatusEnum status, T data) {
         this(status, "", "", data);
 
