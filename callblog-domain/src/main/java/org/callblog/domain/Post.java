@@ -13,7 +13,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long seq;
+    private Long id;
 
     @NotEmpty(message = "타이틀은 필수입니다.")
     private String title;

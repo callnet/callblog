@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long seq;
+    private Long id;
 
     @NotEmpty(message = "email 은 필수 값입니다.",
             groups = { ValidationGroups.loginGroup.class,
