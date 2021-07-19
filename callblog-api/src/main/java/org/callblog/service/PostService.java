@@ -1,6 +1,7 @@
 package org.callblog.service;
 
 import org.callblog.configuration.CallblogCommonException;
+import org.callblog.domain.CommonInfo;
 import org.callblog.domain.Post;
 import org.callblog.model.response.ErrorResponse;
 import org.callblog.model.response.StatusEnum;
@@ -20,6 +21,7 @@ public class PostService {
     }
 
     public void savePost(Post post) {
+        post.setCommonInfo(new CommonInfo());
         postRepository.save(post);
     }
 
