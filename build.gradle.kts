@@ -56,4 +56,8 @@ subprojects {
         useJUnitPlatform()
     }
 
+    tasks.build {
+        sourceSets.forEach { e -> e.java{ srcDirs.forEach { it.mkdirs() } } }
+    }
+
 }
