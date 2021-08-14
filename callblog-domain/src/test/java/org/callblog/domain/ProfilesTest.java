@@ -1,5 +1,6 @@
 package org.callblog.domain;
 
+import org.callblog.CallblogDomainApplication;
 import org.callblog.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,7 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Arrays;
 
-@SpringBootTest
+@SpringBootTest(classes = CallblogDomainApplication.class)
 @ActiveProfiles("dev")
 public class ProfilesTest {
     @Autowired
