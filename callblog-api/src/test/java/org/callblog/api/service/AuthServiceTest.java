@@ -1,6 +1,7 @@
 package org.callblog.api.service;
 
 
+import org.callblog.CallblogApiApplication;
 import org.callblog.domain.CommonInfo;
 import org.callblog.domain.User;
 import org.callblog.repository.UserRepository;
@@ -11,7 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
 
-@SpringBootTest
+@SpringBootTest(classes = CallblogApiApplication.class)
 @ActiveProfiles("dev")
 public class AuthServiceTest {
 

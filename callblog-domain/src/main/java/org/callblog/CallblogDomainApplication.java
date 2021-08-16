@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing //@CreatedDate 를 사용하기 위함
 @SpringBootApplication
-public class callblogDomainApplication {
+public class CallblogDomainApplication {
     public static void main(String[] args) {
-        SpringApplication.run(callblogDomainApplication.class, args);
+        SpringApplication.run(CallblogDomainApplication.class, args);
     }
 }

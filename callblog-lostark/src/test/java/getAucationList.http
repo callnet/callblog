@@ -1,0 +1,63 @@
+POST https://lostark.game.onstove.com/Auction/GetAuctionListV2
+Content-Type: application/x-www-form-urlencoded;
+
+{
+  "request[firstCategory]": "30000",
+  "request[secondCategory]: "0",
+  "request[classNo]": "104",
+  "request[itemTier]": "3",
+  "request[itemGrade]": "5",
+  "request[itemLevelMin]": "0",
+  "request[itemLevelMax]": "1600"
+}
+
+###
+
+
+POST https://lostark.game.onstove.com/Auction/GetAuctionListV2
+Content-Type: multipart/form-data;
+
+{
+  "request[firstCategory]": "200000",
+  "request[secondCategory]": "200010",
+  "request[classNo]": "104",
+  "request[itemTier]": "3",
+  "request[itemGrade]": "5",
+  "request[itemLevelMin]": "0",
+  "request[itemLevelMax]": "1600",
+  "request[itemName]": "",
+  "request[gradeQuality]": "",
+  "request[skillOptionList][0][firstOption]": "",
+  "request[skillOptionList][0][secondOption]": "",
+  "request[skillOptionList][0][minValue]": "",
+  "request[skillOptionList][0][maxValue]": "",
+  "request[skillOptionList][1][firstOption]": "",
+  "request[skillOptionList][1][secondOption]": "",
+  "request[skillOptionList][1][minValue]": "",
+  "request[skillOptionList][1][maxValue]": "",
+  "request[skillOptionList][2][firstOption]": "",
+  "request[skillOptionList][2][secondOption]": "",
+  "request[skillOptionList][2][minValue]": "",
+  "request[skillOptionList][2][maxValue]": "",
+  "request[etcOptionList][0][firstOption]": "2",
+  "request[etcOptionList][0][secondOption]": "16",
+  "request[etcOptionList][0][minValue]": "",
+  "request[etcOptionList][0][maxValue]": "",
+  "request[etcOptionList][1][firstOption]": "2",
+  "request[etcOptionList][1][secondOption]": "15",
+  "request[etcOptionList][1][minValue]": "",
+  "request[etcOptionList][1][maxValue]": "",
+  "request[etcOptionList][2][firstOption]": "3",
+  "request[etcOptionList][2][secondOption]": "118",
+  "request[etcOptionList][2][minValue]": "3",
+  "request[etcOptionList][2][maxValue]": "",
+  "request[etcOptionList][3][firstOption]": "3",
+  "request[etcOptionList][3][secondOption]": "109",
+  "request[etcOptionList][3][minValue]": "5",
+  "request[etcOptionList][3][maxValue]": "",
+  "request[pageNo]": "1",
+  "request[sortOption][Sort]": "BIDSTART_PRICE",
+  "request[sortOption][IsDesc]": "false",
+  "pushKey": "",
+  "tooltipData": ""
+}
